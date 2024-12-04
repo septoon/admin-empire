@@ -1,0 +1,1 @@
+export const chatIds = [process.env.REACT_APP_ADMIN_ID]

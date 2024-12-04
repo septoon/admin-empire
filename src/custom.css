@@ -1,0 +1,16 @@
+@media (prefers-color-scheme: dark) {
+  .accord a,
+  .accord .p-accordion-content {
+    color: #f9fafb  !important;
+    background-color: #141616  !important;
+  }
+  .dialog, .p-dialog-header, .p-dialog-content, .p-dialog-footer {
+    background-color: #141616;
+    color: #fff;
+  }
+}
+
+.section-separator {
+  border-bottom: .5px groove #CECECF;
+  margin: 8px 0;
+}
