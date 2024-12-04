@@ -1,7 +1,7 @@
 {
   "name": "admin-client",
   "version": "0.1.0",
-  "homepage": "http://septoon.github.io/admin-empire",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.3",
