@@ -56,7 +56,7 @@ const Available = () => {
   const saveData = () => {
     window.Telegram.WebApp.HapticFeedback.impactOccurred('heavy');
     axios
-      .put((`${process.env.REACT_APP_URL}/api/save/available.json`, data)
+      .put(`${process.env.REACT_APP_URL}/api/save/available.json`, data)
       .then(() => toast.success('Данные успешно обновлены!'))
       .catch((error) => {
         console.error('Error saving data:', error);
