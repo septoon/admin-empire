@@ -122,7 +122,7 @@ const Contacts = () => {
         <div className="flex items-center mb-3 w-full">
           <div className="w-full flex flex-col">
             <span className="font-bold dark:text-white mb-2">Режим работы:</span>
-            <div className='flex justify-between w-full py-4'>
+            <div className='flex justify-between w-full py-4 border-b border-gray-300 dark:border-dark-switch'>
               <span className='dark:text-white'>Ежедневно</span>
               <Switch
                 name="everyday"
@@ -132,7 +132,7 @@ const Contacts = () => {
               />
             </div>
             <div className='flex flex-col'>
-              <div className='flex justify-between items-center'>
+              <div className='flex justify-between items-center py-4 border-b border-gray-300 dark:border-dark-switch'>
                 <span className="text-sm font-bold dark:text-white my-1">Открытие:</span>
                 <input
                   type="number"
@@ -144,7 +144,7 @@ const Contacts = () => {
                   inputMode="numeric"
                 />
               </div>
-              <div className='flex justify-between items-center'>
+              <div className='flex justify-between items-center py-4 border-b border-gray-300 dark:border-dark-switch'>
                 <span className="text-sm font-bold dark:text-white my-1">Закрытие:</span>
                 <input
                   type="number"
