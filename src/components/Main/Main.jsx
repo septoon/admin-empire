@@ -7,10 +7,8 @@ import clockIcon from '../../assets/img/clock.png';
 import postsIcon from '../../assets/img/posts.png';
 import availableIcon from '../../assets/img/isAvailable.png';
 import { chatIds } from '../../common/access';
-import './Main.css';
 
 const Main = () => {
-  const [animationClass, setAnimationClass] = useState('page');
   const navigate = useNavigate();
   const userId = window.Telegram?.WebApp.initDataUnsafe.user.id;
 
@@ -27,19 +25,16 @@ const Main = () => {
     } catch (error) {
       console.error('Ошибка при инициализации Telegram WebApp:', error);
     }
-    setAnimationClass('page-enter-active');
   }, []);
 
   const handleNavigation = (path) => {
-    setAnimationClass('page-exit-active');
-
     setTimeout(() => {
       navigate(path);
     }, 300);
   };
 
   return (
-    <div className={`page ${animationClass}`}>
+    <div>
       {
       chatIds.includes(userId) ? (
         <>

@@ -108,6 +108,9 @@ const Posts = () => {
     return <Loader />;
   }
 
+  const inputClassName =
+  'p-2 border border-gray-300 focus:outline-none dark:border-dark-switch dark:bg-dark dark:text-white rounded';
+
   return (
     <div
       className={`w-full h-full flex flex-col justify-center items-center pt-4 page-el ${animationClass}`}>
@@ -117,7 +120,7 @@ const Posts = () => {
             posts.map((items, index) => (
               <div key={index} className='border border-gray-300 dark:border-dark-switch rounded-lg p-2 mb-4'>
                 <div className="w-full flex flex-row justify-between items-center px-2 py-4 border-b border-gray-300 dark:border-dark-switch mb-2">
-                  <input type="text" value={items.title} onChange={handlePostChange} className='p-2' />
+                  <input type="text" value={items.title} onChange={handlePostChange} className={inputClassName} />
                   <IconTrash stroke={2} color='#FF0000' 
                   onClick={() => deletePost(index)} 
                   />
@@ -126,7 +129,7 @@ const Posts = () => {
                 {
                   items.content.map((item, contentIndex) => (
                     <div className='flex justify-between items-center mb-2 px-2'>
-                      <textarea key={contentIndex} className='w-3/4' value={item} onChange={handleContentChange} />
+                      <textarea key={contentIndex} className={`${inputClassName} w-3/4`} value={item} onChange={handleContentChange} />
                       <IconTrashFilled stroke={2} size={16} color='#FF0000' onClick={() => deleteContentLine(index, contentIndex)} />
                     </div>
                   ))

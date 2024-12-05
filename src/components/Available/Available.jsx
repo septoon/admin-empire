@@ -10,10 +10,8 @@ const Available = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({ isNotAvailable: false, content: '' });
   const [loading, setLoading] = useState(true);
-  const [animationClass, setAnimationClass] = useState('page-el-enter');
 
   useEffect(() => {
-    setAnimationClass('page-el-enter-active');
     axios
       .get(`${process.env.REACT_APP_URL}/available.json?t=${Date.now()}`)
       .then((response) => {
@@ -29,10 +27,8 @@ const Available = () => {
   }, []);
 
   const handleNavigation = () => {
-    setAnimationClass('page-el-exit-active');
-
     setTimeout(() => {
-      navigate('/admin-shd');
+      navigate('/admin-empire');
     }, 300);
   };
 
@@ -68,7 +64,7 @@ const Available = () => {
 
   return (
     <div
-      className={`w-full h-full flex flex-col justify-center items-center pt-4 page-el ${animationClass}`}>
+      className='w-full h-full flex flex-col justify-center items-center pt-4'>
       <div className="w-full flex flex-col px-3">
         <div className={inputWrapper}>
           <div className="flex justify-between items-center w-full">

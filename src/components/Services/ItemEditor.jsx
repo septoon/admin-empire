@@ -19,7 +19,7 @@ function ItemEditor({ item, onChange, onDelete }) {
     <div className="w-full flex flex-col items-center justify-between dark:bg-black rounded-10 px-0 mt-5 rounded-md shadow-xl">
       <div className="flex w-full justify-between items-start flex-row mb-2">
         <div className="flex flex-col w-full h-full justify-around px-1">
-        <div className="w-full flex flex-row justify-between items-center pr-2">
+        <div className="w-full flex flex-row justify-between items-center pr-2 mb-2">
           <span className="text-gray-500">Услуга:</span>
           <input
             type="text"
@@ -39,7 +39,7 @@ function ItemEditor({ item, onChange, onDelete }) {
                 value={item.price || ''}
                 onChange={handleChange}
                 placeholder="Цена"
-                className={`${inputClassName} w-16`}
+                className={`${inputClassName} w-14`}
                 inputMode="numeric"
               />
               <span className="text-gray-500"> ₽</span>

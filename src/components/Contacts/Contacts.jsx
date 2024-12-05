@@ -7,16 +7,13 @@ import { toast } from 'react-toastify';
 import WebApp from '@twa-dev/sdk';
 import Loader from '../../common/Loader/Loader';
 import Switch from '../Switch/Switch';
-import '../../index.css'
 
 const Contacts = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({ address: '', phoneNumber: '', mail: '', scheduleStart: 0, scheduleEnd: 0, everyday: true });
   const [loading, setLoading] = useState(true);
-  const [animationClass, setAnimationClass] = useState('page-el-enter');
 
   useEffect(() => {
-    setAnimationClass('page-el-enter-active');
     axios
       .get(`${process.env.REACT_APP_URL}/contacts.json?t=${Date.now()}`)
       .then((response) => {
@@ -44,10 +41,8 @@ const Contacts = () => {
   };
 
   const handleNavigation = () => {
-    setAnimationClass('page-el-exit-active');
-
     setTimeout(() => {
-      navigate('/admin-shd');
+      navigate('/admin-empire');
     }, 300);
   };
 
@@ -79,7 +74,7 @@ const Contacts = () => {
     'p-2 border border-gray-300 focus:outline-none dark:border-dark-switch dark:bg-dark dark:text-white rounded';
 
   return (
-    <div className={`w-full h-full flex flex-col justify-center items-center pt-4 page-el ${animationClass}`}>
+    <div className='w-full h-full flex flex-col justify-center items-center pt-4'>
       <div className="w-full flex flex-col px-3">
         <div className="flex items-center mb-3 w-full">
           <div className="flex flex-col">
@@ -128,7 +123,7 @@ const Contacts = () => {
           <div className="w-full flex flex-col">
             <span className="font-bold dark:text-white mb-2">Режим работы:</span>
             <div className='flex justify-between w-full py-4'>
-              <span>Ежедневно</span>
+              <span className='dark:text-white'>Ежедневно</span>
               <Switch
                 name="everyday"
                 value={data.everyday}
@@ -142,7 +137,7 @@ const Contacts = () => {
                 <input
                   type="number"
                   name="scheduleStart"
-                  className={inputClassName}
+                  className={`${inputClassName} w-12`}
                   placeholder="Открытие"
                   onChange={handleChange}
                   value={data.scheduleStart || ''}
@@ -154,7 +149,7 @@ const Contacts = () => {
                 <input
                   type="number"
                   name="scheduleEnd"
-                  className={inputClassName}
+                  className={`${inputClassName} w-12`}
                   placeholder="Закрытие"
                   onChange={handleChange}
                   value={data.scheduleEnd || ''}

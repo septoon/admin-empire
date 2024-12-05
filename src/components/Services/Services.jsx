@@ -6,16 +6,13 @@ import CategoryEditor from './CategoryEditor';
 import { toast } from 'react-toastify';
 import { BackButton, MainButton } from '@twa-dev/sdk/react';
 import Loader from '../../common/Loader/Loader';
-import '../../index.css';
 
 const Services = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [animationClass, setAnimationClass] = useState('page-el-enter');
   const navigate = useNavigate();
 
   useEffect(() => {
-    setAnimationClass('page-el-enter-active');
     axios
       .get(`${process.env.REACT_APP_URL}/services.json?t=${Date.now()}`)
       .then((response) => {
@@ -41,7 +38,6 @@ const Services = () => {
   };
 
   const handleNavigation = () => {
-    setAnimationClass('page-el-exit-active');
     setTimeout(() => {
       navigate('/admin-empire');
     }, 300);
@@ -61,7 +57,7 @@ const Services = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className={`w-full pb-10 page-el ${animationClass}`}>
+    <div className='w-full pb-10'>
       {data.map((categoryItem, index) => (
         <CategoryEditor
           key={categoryItem.id || index}

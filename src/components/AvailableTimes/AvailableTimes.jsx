@@ -6,16 +6,13 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { IconTrash } from '@tabler/icons-react';
 import Loader from '../../common/Loader/Loader';
-import '../../index.css'
 
 function AvailableTimes() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [animationClass, setAnimationClass] = useState('page-el-enter');
 
   useEffect(() => {
-    setAnimationClass('page-el-enter-active');
     axios
       .get(`${process.env.REACT_APP_URL}/availableTimes.json?t=${Date.now()}`)
       .then((response) => {
@@ -40,10 +37,8 @@ function AvailableTimes() {
   };
 
   const handleNavigation = () => {
-    setAnimationClass('page-el-exit-active');
-
     setTimeout(() => {
-      navigate('/admin-shd');
+      navigate('/admin-empire');
     }, 300);
   };
   
@@ -74,7 +69,7 @@ function AvailableTimes() {
   const inputClassName = 'pl-2 py-2 w-1/5 m-2 border border-gray-300 focus:outline-none dark:border-dark-switch dark:bg-dark dark:text-white rounded';
   
   return (
-    <div className={`w-full h-full flex flex-col justify-center items-center pt-4 page-el ${animationClass}`}>
+    <div className='w-full h-full flex flex-col justify-center items-center pt-4'>
       
       <div className='w-full flex flex-col px-3'>
         <span className='font-bold dark:text-white'>Время для записи:</span>
