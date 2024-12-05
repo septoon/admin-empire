@@ -9,11 +9,9 @@ import { useNavigate } from 'react-router-dom';
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [animationClass, setAnimationClass] = useState('page-el-enter');
   const navigate = useNavigate();
 
   useEffect(() => {
-    setAnimationClass('page-el-enter-active');
     axios
       .get(`${process.env.REACT_APP_URL}/posts.json?t=${Date.now()}`)
       .then((response) => {
@@ -86,7 +84,6 @@ const Posts = () => {
   };
 
   const handleNavigation = () => {
-    setAnimationClass('page-el-exit-active');
     setTimeout(() => {
       navigate('/admin-empire');
     }, 300);
@@ -113,8 +110,8 @@ const Posts = () => {
 
   return (
     <div
-      className={`w-full h-full flex flex-col justify-center items-center pt-4 page-el ${animationClass}`}>
-      <div className="w-full flex flex-col px-3">
+      className='w-full h-full flex flex-col justify-center items-center pt-4'>
+      <div className="w-full flex flex-col px-1">
         
           {
             posts.map((items, index) => (
