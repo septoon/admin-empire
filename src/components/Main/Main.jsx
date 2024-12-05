@@ -34,7 +34,7 @@ const Main = () => {
   };
 
   return (
-    <div>
+    <div className='w-full h-full flex flex-col items-center justify-center pt-20'>
       {
       chatIds.includes(userId) ? (
         <>
