@@ -14,11 +14,11 @@ function AvailableTimes() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [animationClass, setAnimationClass] = useState('page-el-enter');
-  console.log(data)
+
   useEffect(() => {
     setAnimationClass('page-el-enter-active');
     axios
-      .get((`${process.env.REACT_APP_URL}/availableTimes.json?t=${Date.now()}`)
+      .get(`${process.env.REACT_APP_URL}/availableTimes.json?t=${Date.now()}`)
       .then((response) => {
         setData(response.data.data);
       })
@@ -58,11 +58,13 @@ function AvailableTimes() {
   };
 
   const saveData = () => {
+    window.Telegram.WebApp.HapticFeedback.impactOccurred('heavy');
     axios
-    .put((`${process.env.REACT_APP_URL}/api/save/availableTimes.json`, { data })
+      .put(`${process.env.REACT_APP_URL}/api/save/availableTimes.json`, data)
       .then(() => toast.success('Данные успешно обновлены!'))
       .catch((error) => {
-        console.error('Ошибка при сохранении данных', error);
+        console.error('Error saving data:', error);
+        toast.error('Ошибка обновления данных.');
       });
   };
 

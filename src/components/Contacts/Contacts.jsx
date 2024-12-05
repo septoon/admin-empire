@@ -18,7 +18,7 @@ const Contacts = () => {
   useEffect(() => {
     setAnimationClass('page-el-enter-active');
     axios
-      .get((`${process.env.REACT_APP_URL}/contacts.json?t=${Date.now()}`)
+      .get(`${process.env.REACT_APP_URL}/contacts.json?t=${Date.now()}`)
       .then((response) => {
         setData(response.data);
       })
@@ -63,7 +63,7 @@ const Contacts = () => {
   
     WebApp.HapticFeedback.impactOccurred('heavy');
     axios
-      .put((`${process.env.REACT_APP_URL}/api/save/contacts.json`, filteredData)
+      .put(`${process.env.REACT_APP_URL}/api/save/contacts.json`, filteredData)
       .then(() => toast.success('Данные успешно обновлены!'))
       .catch((error) => {
         console.error('Error saving data:', error);

@@ -7,7 +7,6 @@ import { IconTrash, IconTrashFilled } from '@tabler/icons-react';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
-  const [data, setData] = useState({ isNotAvailable: false, content: '' });
   const [loading, setLoading] = useState(true);
   const [animationClass, setAnimationClass] = useState('page-el-enter');
 
@@ -87,7 +86,7 @@ const Posts = () => {
   const saveData = () => {
     window.Telegram.WebApp.HapticFeedback.impactOccurred('heavy');
     axios
-      .put(`${process.env.REACT_APP_URL}/api/save/posts.json`, data)
+      .put(`${process.env.REACT_APP_URL}/api/save/posts.json`, posts)
       .then(() => toast.success('Данные успешно обновлены!'))
       .catch((error) => {
         console.error('Error saving data:', error);
