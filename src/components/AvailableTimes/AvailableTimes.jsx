@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import WebApp from '@twa-dev/sdk';
 import { IconTrash } from '@tabler/icons-react';
 import Loader from '../../common/Loader/Loader';
 import '../../index.css'
@@ -100,7 +99,6 @@ function AvailableTimes() {
       <button onClick={addTime} className="mt-6 px-4 py-2 text-white font-semibold bg-orange-600 rounded-md">Добавить время</button>
       <BackButton onClick={handleNavigation} />
       <MainButton text='Сохранить изменения' onClick={saveData} />
-      <button onClick={saveData}>Сохранить</button>
     </div>
   );
   

@@ -28,14 +28,6 @@ const Available = () => {
       });
   }, []);
 
-  useEffect(() => {
-    window.Telegram.WebApp.BackButton.show();
-    window.Telegram.WebApp.BackButton.onClick(() => navigate('/admin-shd'));
-    return () => {
-      window.Telegram.WebApp.BackButton.hide();
-    };
-  }, [navigate]);
-
   const handleNavigation = () => {
     setAnimationClass('page-el-exit-active');
 
@@ -116,7 +108,6 @@ const Available = () => {
 
       <BackButton onClick={handleNavigation} />
       <MainButton text="Сохранить изменения" onClick={saveData} />
-      <button onClick={saveData}>Сохранить</button>
     </div>
   );
 };

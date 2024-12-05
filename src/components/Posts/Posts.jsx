@@ -4,11 +4,13 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Loader from '../../common/Loader/Loader';
 import { IconTrash, IconTrashFilled } from '@tabler/icons-react';
+import { useNavigate } from 'react-router-dom';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [animationClass, setAnimationClass] = useState('page-el-enter');
+  const navigate = useNavigate();
 
   useEffect(() => {
     setAnimationClass('page-el-enter-active');
@@ -83,6 +85,13 @@ const Posts = () => {
     });
   };
 
+  const handleNavigation = () => {
+    setAnimationClass('page-el-exit-active');
+    setTimeout(() => {
+      navigate('/admin-empire');
+    }, 300);
+  };
+
   const saveData = () => {
     window.Telegram.WebApp.HapticFeedback.impactOccurred('heavy');
     axios
@@ -140,7 +149,7 @@ const Posts = () => {
           </button>
       </div>
 
-      {/* <BackButton onClick={handleNavigation} /> */}
+      <BackButton onClick={handleNavigation} />
       <MainButton text="Сохранить изменения" onClick={saveData} />
     </div>
   );

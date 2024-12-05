@@ -168,7 +168,6 @@ const Contacts = () => {
 
       <BackButton onClick={handleNavigation} />
       <MainButton text="Сохранить изменения" onClick={saveData} />
-      <button onClick={saveData}>Сохранить</button>
     </div>
   );
 };
