@@ -30,7 +30,7 @@ function ItemEditor({ item, onChange, onDelete }) {
             className={inputClassName}
           />
         </div>
-          <div className="w-full flex flex-row justify-between items-center pr-2">
+          <div className="w-full flex flex-row justify-between items-center pr-2 mb-2">
             <span className="text-gray-500">Стоимость:</span>
             <div>
               <input

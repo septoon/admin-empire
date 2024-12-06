@@ -20,25 +20,17 @@ const Main = () => {
       }
       WebApp.ready();
       WebApp.expand();
+      WebApp.requestFullscreen();
     } catch (error) {
       console.error('Ошибка при инициализации Telegram WebApp:', error);
     }
   }, []);
 
   return (
-    <div className='w-full h-full flex flex-col items-center justify-center pt-20 overflow-hidden'>
+    <div className='w-full max-h-full flex flex-col items-center justify-center pt-20 overflow-hidden'>
       {
       chatIds.includes(WebApp.initDataUnsafe.user.id) ? (
         <>
-        <div onClick={() => WebApp.requestFullscreen()}
-          className="w-[80%] h-15 flex justify-start pl-5 items-center mb-15 bg-silver dark:bg-darkGray rounded-lg cursor-pointer"
-        >
-          <img src={WebApp.initDataUnsafe.user.photo_url} className="h-6 rounded-full mr-3" alt="avatar" />
-          <div className='flex flex-col'>
-            <span className="dark:text-white font-semibold">{`${ WebApp.initDataUnsafe.user.first_name}`}</span>
-            <span className="dark:text-white text-sm opacity-50">{WebApp.initDataUnsafe.user.user.id === process.env.REACT_APP_ADMIN_ID ? 'Администратор' : 'Модератор'}</span>
-          </div>
-        </div>
         <div
           onClick={() => navigate('/services')}
           className="w-[80%] h-20 flex justify-start pl-5 items-center mb-5 bg-silver dark:bg-darkGray rounded-lg cursor-pointer"
