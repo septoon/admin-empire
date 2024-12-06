@@ -20,12 +20,6 @@ const Main = () => {
       }
       WebApp.ready();
       WebApp.expand();
-      setTimeout(() => {
-        WebApp.requestFullscreen()
-          .catch((error) => {
-            console.error('Ошибка при попытке перейти в полноэкранный режим:', error);
-          });
-      }, 300);
     } catch (error) {
       console.error('Ошибка при инициализации Telegram WebApp:', error);
     }
@@ -36,7 +30,7 @@ const Main = () => {
       {
       chatIds.includes(WebApp.initDataUnsafe.user.id) ? (
         <>
-        <div
+        <div onClick={() => WebApp.requestFullscreen()}
           className="w-[80%] h-15 flex justify-start pl-5 items-center mb-15 bg-silver dark:bg-darkGray rounded-lg cursor-pointer"
         >
           <img src={WebApp.initDataUnsafe.user.photo_url} className="h-6 rounded-full mr-3" alt="avatar" />
