@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import WebApp from '@twa-dev/sdk';
 
 import servicesIcon from '../../assets/img/services.png';
 import contactsIcon from '../../assets/img/contacts.png';
@@ -10,11 +11,9 @@ import { chatIds } from '../../common/access';
 
 const Main = () => {
   const navigate = useNavigate();
-  const userId = window.Telegram?.WebApp.initDataUnsafe.user.id;
 
   useEffect(() => {
     try {
-      const WebApp = window.Telegram?.WebApp;
       if (!WebApp) {
         console.error('Telegram WebApp API недоступен.');
         return;
@@ -34,9 +33,9 @@ const Main = () => {
   };
 
   return (
-    <div className='w-full h-full flex flex-col items-center justify-center pt-20'>
+    <div className='w-full h-full flex flex-col items-center justify-center pt-20 overflow-hidden'>
       {
-      chatIds.includes(userId) ? (
+      chatIds.includes(WebApp.initDataUnsafe.user.id) ? (
         <>
         <div
           onClick={() => handleNavigation('/services')}

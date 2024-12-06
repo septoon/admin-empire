@@ -132,7 +132,7 @@ const Posts = () => {
                   ))
                 }
                 <button
-                  onClick={addContentLine}
+                  onClick={() => addContentLine(index)}
                   className="mt-2 px-1 py-2 w-1/2 text-white text-sm font-semibold bg-orange rounded-md"
                 >
                   Добавить строку +
