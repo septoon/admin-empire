@@ -20,7 +20,9 @@ const Main = () => {
       }
       WebApp.ready();
       WebApp.expand();
-      WebApp.requestFullscreen();
+      setTimeout(() => {
+        WebApp.requestFullscreen();
+      }, 300)
     } catch (error) {
       console.error('Ошибка при инициализации Telegram WebApp:', error);
     }
