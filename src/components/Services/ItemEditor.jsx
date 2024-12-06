@@ -45,6 +45,21 @@ function ItemEditor({ item, onChange, onDelete }) {
               <span className="text-gray-500"> ₽</span>
             </div>
           </div>
+          <div className="w-full flex flex-row justify-between items-center pr-2">
+            <span className="text-gray-500">Длительность:</span>
+            <div>
+              <input
+                type="number"
+                name="duration"
+                value={item.duration || ''}
+                onChange={handleChange}
+                placeholder="Длительность"
+                className={`${inputClassName} w-14`}
+                inputMode="numeric"
+              />
+              <span className="text-gray-500"> мин.</span>
+            </div>
+          </div>
         </div>
       </div>
       <button

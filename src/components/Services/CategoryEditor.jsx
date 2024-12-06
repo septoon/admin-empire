@@ -29,13 +29,13 @@ function CategoryEditor({ category, items, categoryIndex, onUpdate }) {
     const newItem = { id: `${category}-${Date.now()}`, category, name: '', price: '', duration: '' };
     const newItems = [...editingItems, newItem];
     setEditingItems(newItems);
-    onUpdate(newItems);
+    onUpdate({ category: editingCategory, items: newItems });
   };
 
   const deleteItem = (id) => {
     const newItems = editingItems.filter((item) => item.id !== id);
     setEditingItems(newItems);
-    onUpdate(newItems);
+    onUpdate({ category: editingCategory, items: newItems }); // Аналогично передаем объект
   };
 
   const onTabChange = (e) => {
