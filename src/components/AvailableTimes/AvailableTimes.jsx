@@ -35,12 +35,6 @@ function AvailableTimes() {
       return newData;
     });
   };
-
-  const handleNavigation = () => {
-    setTimeout(() => {
-      navigate('/admin-empire');
-    }, 300);
-  };
   
   const addTime = () => {
     setData([...data, '']);
@@ -92,7 +86,7 @@ function AvailableTimes() {
         </div>
       </div>
       <button onClick={addTime} className="mt-6 px-4 py-2 text-white font-semibold bg-orange-600 rounded-md">Добавить время</button>
-      <BackButton onClick={handleNavigation} />
+      <BackButton onClick={() => navigate('/admin-empire')} />
       <MainButton text='Сохранить изменения' onClick={saveData} />
     </div>
   );

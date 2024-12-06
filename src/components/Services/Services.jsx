@@ -37,12 +37,6 @@ const Services = () => {
     );
   };
 
-  const handleNavigation = () => {
-    setTimeout(() => {
-      navigate('/admin-empire');
-    }, 300);
-  };
-
   const saveData = () => {
     WebApp.HapticFeedback.impactOccurred('heavy');
     axios
@@ -67,7 +61,7 @@ const Services = () => {
           onUpdate={(updatedData) => handleCategoryUpdate(index, updatedData)}
         />
       ))}
-      <BackButton onClick={handleNavigation} />
+      <BackButton onClick={() => navigate('/admin-empire')} />
       <MainButton text='Сохранить изменения' onClick={saveData} />
     </div>
   );

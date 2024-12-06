@@ -83,12 +83,6 @@ const Posts = () => {
     });
   };
 
-  const handleNavigation = () => {
-    setTimeout(() => {
-      navigate('/admin-empire');
-    }, 300);
-  };
-
   const saveData = () => {
     window.Telegram.WebApp.HapticFeedback.impactOccurred('heavy');
     axios
@@ -149,7 +143,7 @@ const Posts = () => {
           </button>
       </div>
 
-      <BackButton onClick={handleNavigation} />
+      <BackButton onClick={() => navigate('/admin-empire')} />
       <MainButton text="Сохранить изменения" onClick={saveData} />
     </div>
   );

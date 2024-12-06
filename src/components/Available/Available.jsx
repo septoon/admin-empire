@@ -26,12 +26,6 @@ const Available = () => {
       });
   }, []);
 
-  const handleNavigation = () => {
-    setTimeout(() => {
-      navigate('/admin-empire');
-    }, 300);
-  };
-
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     type === 'checkbox' && window.Telegram.WebApp.HapticFeedback.impactOccurred('medium');
@@ -102,7 +96,7 @@ const Available = () => {
         </div>
       </div>
 
-      <BackButton onClick={handleNavigation} />
+      <BackButton onClick={() => navigate('/admin-empire')} />
       <MainButton text="Сохранить изменения" onClick={saveData} />
     </div>
   );

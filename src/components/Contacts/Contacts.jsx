@@ -40,12 +40,6 @@ const Contacts = () => {
     }));
   };
 
-  const handleNavigation = () => {
-    setTimeout(() => {
-      navigate('/admin-empire');
-    }, 300);
-  };
-
   const saveData = () => {
     const filteredData = (({ address, phoneNumber, mail, scheduleStart, scheduleEnd, everyday }) => ({
       address,
@@ -161,7 +155,7 @@ const Contacts = () => {
         </div>
       </div>
 
-      <BackButton onClick={handleNavigation} />
+      <BackButton onClick={() => navigate('/admin-empire')} />
       <MainButton text="Сохранить изменения" onClick={saveData} />
     </div>
   );
