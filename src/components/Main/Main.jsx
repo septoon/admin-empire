@@ -11,9 +11,6 @@ import { chatIds } from '../../common/access';
 
 const Main = () => {
   const navigate = useNavigate();
-  import WebApp from '@twa-dev/sdk';
-
-const user = WebApp.initDataUnsafe.user.first_name;
 
   useEffect(() => {
     try {
@@ -24,8 +21,11 @@ const user = WebApp.initDataUnsafe.user.first_name;
       WebApp.ready();
       WebApp.expand();
       setTimeout(() => {
-        WebApp.requestFullscreen();
-      }, 300)
+        WebApp.requestFullscreen()
+          .catch((error) => {
+            console.error('Ошибка при попытке перейти в полноэкранный режим:', error);
+          });
+      }, 300);
     } catch (error) {
       console.error('Ошибка при инициализации Telegram WebApp:', error);
     }
@@ -36,13 +36,12 @@ const user = WebApp.initDataUnsafe.user.first_name;
       {
       chatIds.includes(WebApp.initDataUnsafe.user.id) ? (
         <>
-
         <div
           className="w-[80%] h-15 flex justify-start pl-5 items-center mb-15 bg-silver dark:bg-darkGray rounded-lg cursor-pointer"
         >
           <img src={WebApp.initDataUnsafe.user.photo_url} className="h-6 rounded-full mr-3" alt="avatar" />
           <div className='flex flex-col'>
-            <span className="dark:text-white">{`${ WebApp.initDataUnsafe.user.first_name}`}</span>
+            <span className="dark:text-white font-semibold">{`${ WebApp.initDataUnsafe.user.first_name}`}</span>
             <span className="dark:text-white text-sm opacity-50">{WebApp.initDataUnsafe.user.user.id === process.env.REACT_APP_ADMIN_ID ? 'Администратор' : 'Модератор'}</span>
           </div>
         </div>
