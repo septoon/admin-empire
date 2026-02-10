@@ -10,6 +10,7 @@ import Contacts from './components/Contacts/Contacts';
 import AvailableTimes from './components/AvailableTimes/AvailableTimes';
 import Posts from './components/Posts/Posts';
 import Available from './components/Available/Available';
+import BookingBlackouts from './components/BookingBlackouts/BookingBlackouts';
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
         <Route path="/available-times" element={<AvailableTimes />} />
         <Route path="/posts" element={<Posts />} />
         <Route path="/available" element={<Available />} />
+        <Route path="/booking-blackouts" element={<BookingBlackouts />} />
       </Routes>
     </div>
   );

@@ -8,6 +8,7 @@ import clockIcon from '../../assets/img/clock.png';
 import postsIcon from '../../assets/img/posts.png';
 import availableIcon from '../../assets/img/isAvailable.png';
 import { chatIds } from '../../common/access';
+import { IconCalendarOff } from '@tabler/icons-react';
 
 const Main = () => {
   const navigate = useNavigate();
@@ -66,6 +67,13 @@ const Main = () => {
           <img src={availableIcon} className="h-5 mr-3" alt="available" />
           <span className="dark:text-white">Доступность сайта</span>
         </div>
+        <div
+          onClick={() => navigate('/booking-blackouts')}
+          className="w-[80%] h-20 flex justify-start pl-5 items-center mb-5 bg-silver dark:bg-darkGray rounded-lg cursor-pointer"
+        >
+          <IconCalendarOff className="h-5 w-5 mr-3 text-black dark:text-white" />
+          <span className="dark:text-white">Запрет бронирований</span>
+        </div>я
         </>
       ) : (
         <span>К сожалению, у вас нет доступа</span>

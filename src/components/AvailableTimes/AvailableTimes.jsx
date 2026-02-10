@@ -16,7 +16,7 @@ function AvailableTimes() {
     axios
       .get(`${process.env.REACT_APP_URL}/availableTimes.json?t=${Date.now()}`)
       .then((response) => {
-        setData(response.data.data);
+        setData(response.data);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -31,13 +31,13 @@ function AvailableTimes() {
     const { value } = e.target;
     setData((prevData) => {
       const newData = [...prevData];
-      newData[index] = { ...newData[index], time: value };
+      newData[index] = { ...newData[index], time: Number(value) };
       return newData;
     });
   };
   
   const addTime = () => {
-    setData([...data, '']);
+    setData([...data, { time: 0 }]);
   };
 
   const deleteTime = (index) => {
